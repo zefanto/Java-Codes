@@ -1,0 +1,107 @@
+import java.util.Scanner;
+
+
+public class expensescalculator {
+
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        String name;
+        int month;
+        char currency = '$';
+        byte workdays = 5;
+        long accountnumber = 0;
+        int coffeecount;
+        double monthlyincome;
+        double groceries;
+        double transportation;
+        double dining;
+        double entertainment;
+        double coffeeprice;
+        double rent;
+        double phonebill;
+        double internetbill;
+        double schoolexpenses;
+        short clothes;
+        long subscriptions;
+        float savingsgoal;
+        boolean stayedwithinbudget;
+        System.out.print("Enter your name: ");
+        name = input.nextLine();
+        System.out.print("Enter the amount of days of the month: ");
+        month = input.nextInt();
+        System.out.print("Enter your monthly income: $");
+        monthlyincome = input.nextDouble();
+        System.out.print("Enter your rent expenses: $");
+        rent = input.nextDouble();
+        System.out.print("Enter your phone bill expenses: $");
+        phonebill = input.nextDouble();
+        System.out.print("Enter your internet bill expenses: $");
+        internetbill = input.nextDouble();
+        System.out.print("Enter your school expenses: $");
+        schoolexpenses = input.nextDouble();
+        System.out.print("Enter your clothes expenses: $");
+        clothes = input.nextShort();
+        System.out.print("Enter your subscriptions expenses: $");
+        subscriptions = input.nextLong();
+        System.out.print("Enter grocery expenses: $");
+        groceries = input.nextDouble();
+        System.out.print("Enter dining expenses: $");
+        dining = input.nextDouble();
+        System.out.print("Enter transportation expenses: $");
+        transportation = input.nextDouble();
+        System.out.print("Enter entertainment expenses: $");
+        entertainment = input.nextDouble();
+        System.out.print("How many coffees you bought this month: ");
+        coffeecount = input.nextInt();
+        System.out.print("Enter the price of one coffee: ");
+        coffeeprice = input.nextDouble();
+        System.out.print("Enter your monthly savings goal: $");
+        savingsgoal = input.nextFloat();
+        System.out.print("Enter your account number (not your actual bank account number): ");
+        accountnumber = input.nextLong();
+        double coffeetotal = coffeecount * coffeeprice;
+        double totalexpenses = groceries + transportation + dining + entertainment + rent + subscriptions + clothes + phonebill + internetbill + schoolexpenses + savingsgoal + coffeetotal;
+        double moneyremaining = monthlyincome - totalexpenses;
+        double dailyaverage = totalexpenses / month;
+        double workdayaverage = totalexpenses / workdays;
+        double weeklyexpenses = totalexpenses / 4.0;
+        stayedwithinbudget = totalexpenses <= monthlyincome;
+        int wholedollarexpenses = (int) totalexpenses;
+        String expensetext = Double.toString(totalexpenses);
+        System.out.println("\n--------------------------------");
+        System.out.println("\tMonthly Expense Report");
+        System.out.println("----------------------------------");
+        System.out.println("Name:\t\t" + name);
+        System.out.println("Account:\t\t" + accountnumber);
+        System.out.println("\n----------------");
+        System.out.println("\tExpenses");
+        System.out.println("------------------");
+        System.out.println("Groceries:\t" + currency + groceries);
+        System.out.println("Transportation:\t" + currency + transportation);
+        System.out.println("Dining:\t" + currency + dining);
+        System.out.println("Entertainment:\t" + currency + entertainment);
+        System.out.println("Rent:\t" + currency + rent);
+        System.out.println("Clothes:\t" + currency + clothes);
+        System.out.println("Subscriptions:\t" + currency + subscriptions);
+        System.out.println("Phone bill:\t" + currency + phonebill);
+        System.out.println("Internet bill:\t" + currency + internetbill);
+        System.out.println("Weekly Expenses:\t" + currency + weeklyexpenses);
+        System.out.println("\n----------------");
+        System.out.println("\tSummary");
+        System.out.println("------------------");
+        System.out.println("Monthly Income:\t" + currency + monthlyincome);
+        System.out.println("Total Expenses:\t" + currency + totalexpenses);
+        System.out.println("Money Remaining:\t" + currency + moneyremaining);
+        System.out.println("Daily Average:\t" + currency + dailyaverage);
+        System.out.println("Within Budget:\t" + stayedwithinbudget);
+        System.out.println("\n------------------------");
+        System.out.println("\tData Conversion");
+        System.out.println("--------------------------");
+        System.out.println("Expenses as whole dollars:\n" + wholedollarexpenses);
+        System.out.println("Expenses converted to string:\t" + expensetext);
+        System.out.println("\n" + name + ", you spent " + currency + totalexpenses + " in " + month + " days.");
+
+        input.close();
+    }
+}
